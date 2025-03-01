@@ -1,15 +1,15 @@
+<?php
+
 namespace App\Services;
 
-use App\Models\User;
-
 class UserService {
-    protected $userModel;
+    protected $users;
 
-    public function __construct(User $userModel) {
-        $this->userModel = $userModel;
+    public function __construct($users) {
+        $this->users = $users;
     }
 
     public function listUsers() {
-        return $this->userModel->all(); // Fetch users from the database
+        return $this->users;
     }
 }
