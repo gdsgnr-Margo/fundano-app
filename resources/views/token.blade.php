@@ -1,6 +1,6 @@
 <form method="POST" action="/token">
-    @call_user_func
+    @csrf
 
-    Search term: <input type="text" name="term" value="" />
+    Search Term: <input type="text" name="term" value=""/>
     <button type="submit">Go</button>
 </form>

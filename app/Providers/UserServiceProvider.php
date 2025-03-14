@@ -2,41 +2,42 @@
 
 namespace App\Providers;
 
-use Illuminate\Support\ServiceProvider;
 use App\Services\UserService;
+use Illuminate\Support\ServiceProvider;
 
 class UserServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
-     *
-     * @return void
      */
     public function register(): void
     {
         $this->app->singleton(UserService::class, function ($app) {
             $users = [
+                // Entry 1
                 [
-                    'id' => '1',
-                    'name' => 'Ria',
-                    'gender' => 'Female'
+                    'id' => 1,
+                    'name' => 'John Doe',
+                    'email' => 'john@doe.com',
+                    'gender' => 'male',
                 ],
+                // Entry 2
                 [
-                    'id' => '2',
-                    'name' => 'Juan',
-                    'gender' => 'Male'
-                ]
+                    'id' => 2,
+                    'name' => 'Jane Doe',
+                    'email' => 'jane@doe.com',
+                    'gender' => 'female',
+                ],
             ];
+
             return new UserService($users);
         });
     }
 
     /**
      * Bootstrap services.
-     *
-     * @return void
      */
-    public function boot()
+    public function boot(): void
     {
         //
     }

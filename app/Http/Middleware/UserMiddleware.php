@@ -15,9 +15,10 @@ class UserMiddleware
      */
     public function handle(Request $request, Closure $next)
     {
-        if ($request->input('auth') != 'ria') {
+        if($request->input('auth') !== 'fundanoisthekey'){
             abort(401);
         }
+
         return $next($request);
     }
 }
